@@ -1,6 +1,7 @@
 # Gripper Projection — 机械臂夹爪投影可视化工具
 
 > 将机械臂（夹爪）末端执行器（EEF）的 3D 位姿投影到相机图像上，并进行 3D 场景可视化。
+> 可用于夹爪在头部视频当中的定位跟踪，实现数据自动化质检或自动化标注等功能
 
 ## 项目概述
 
@@ -87,9 +88,16 @@ python visualize_3d_gripper_fixed.py
 *相机位姿（青色）、视锥（半透明）、左右夹爪运动轨迹（绿/红），以及 torso 坐标系原点*
 
 ### 拖影视频
+
+#### Episode 000000
 <video src="episode_000000_trail.mp4" controls width="640"></video>
 
 *夹爪投影拖影效果：连续显示当前/过去帧的投影位置，形成运动轨迹*
+
+#### Episode 000001
+<video src="episode_000001_trail.mp4" controls width="640"></video>
+
+*另一个 episode 的夹爪投影拖影效果*
 
 ## 投影流程
 
@@ -107,7 +115,7 @@ torso坐标系3D点 (m)
 
 ## 坐标系说明
 
-- **torso 坐标系**：机器人躯干坐标系，X 向左、Y 向前、Z 向上
+- **torso 坐标系**：机器人躯干坐标系，X 向左、Y 向后、Z 向上
 - **相机坐标系**：光轴（Z）指向操作台，Y 向下，X 向右
 - 外参 `T_torso_from_cam` 表示：相机坐标 → torso 坐标的变换
 
